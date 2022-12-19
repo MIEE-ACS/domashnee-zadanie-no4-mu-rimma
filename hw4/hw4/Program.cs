@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace hw4
 {
@@ -15,7 +17,7 @@ namespace hw4
                         return true;
                     }
                 }
-                if ((item == ',')|| (item == '.'))
+                if ((item == ',') || (item == '.'))
                 {
                     return true;
                 }
@@ -25,7 +27,7 @@ namespace hw4
 
         static void RandArray(double[] array, int n)
         {
-            Random rnd = new Random();
+            Random rnd = new();
             for (int i = 0; i < n; i++)
             {
                 array[i] = rnd.Next(-50, 50) + rnd.NextDouble();
