@@ -41,7 +41,7 @@ namespace hw4_2
             {
                 for (int x = 0; x < n_col; x++)
                 {
-                    array[x, y] = rnd.Next(-50, 50) + rnd.NextDouble();
+                    array[y, x] = rnd.Next(-50, 50) + rnd.NextDouble();
                 }
             }
         }
@@ -52,7 +52,7 @@ namespace hw4_2
             {
                 for (int x = 0; x < n_col; x++)
                 {
-                    Console.Write("{0,7:F2}", array[x, y]);
+                    Console.Write("{0,7:F2}", array[y, x]);
                 }
                 Console.Write("\n\n");
             }
@@ -89,6 +89,22 @@ namespace hw4_2
                 }
         }
 
+        static void FindSum(double[,] array, int n_col, int n_str)
+        {
+            double sum = 0;
+            for (int y = 0; y < n_str; y++)
+            {
+                for (int x = 0; x < n_col; x++)
+                {
+                    if (x <= y)
+                    {
+                        sum += Math.Abs(array[y, x]);
+                    }
+                }
+            }
+
+            Console.Write("{0,7:F2}", sum);
+        }
         static void Main(string[] args)
         {
             /*Console.Write("Введите колличество столбцов матрицы: ");
@@ -121,6 +137,10 @@ namespace hw4_2
             Console.WriteLine("Преобразованная матрица: \n");
             SortArray(array2, n_column, n_string);
             PrintArray(array2, n_column, n_string);
+
+            Console.Write("Сумма модулей элементов, расположенных ниже главной диагонали: ");
+            FindSum(array2, n_column, n_string);
+            Console.WriteLine("\n\n");
         }
     }
 }
