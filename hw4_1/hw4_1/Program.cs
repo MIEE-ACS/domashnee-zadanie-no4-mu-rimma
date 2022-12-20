@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 
-namespace hw4
+namespace hw4_1
 {
     class Program
     {
@@ -65,13 +63,16 @@ namespace hw4
                     index1 = i;
                     break;
                 }
+            }
+            for (int i = index1 +1; i < n; i++)
+            {
                 if ((array[i] > 0) && (i != index1))
                 {
                     index2 = i;
                     break;
                 }
             }
-            for (int i = index1; i < index2; i++)
+            for (int i = index1 + 1; i < index2; i++)
             {
                 sum += array[i];
             }
@@ -91,7 +92,7 @@ namespace hw4
 
             double[] array1 = new double[n - m];
             double[] array2 = new double[m];
-            for (int i =0; i < n; i++)
+            for (int i = 0; i < n; i++)
             {
                 if (array[i] != 0)
                 {
@@ -110,7 +111,7 @@ namespace hw4
         {
             Console.Write("Введите количество элементов массива: ");
             string s = Console.ReadLine();
-            while  (CheckPoint(s))
+            while (CheckPoint(s))
             {
                 Console.Write("\nОшибка. Введите число: ");
                 s = Console.ReadLine();
@@ -122,7 +123,7 @@ namespace hw4
             PrintArray(array, n); ;
             Console.Write($"\nМаксимальный по модулю элемент массива: {FindMaxAbs(array, n)}");
             Console.Write($"\nСумма элементов массива, расположенных между первым и вторым \nположительными элементами: {FindSum(array, n)}");
-            
+
             array = Buff(array, n);
             Console.Write("\nПреобразованный массив: \n");
             PrintArray(array, n);
@@ -130,9 +131,3 @@ namespace hw4
         }
     }
 }
-/*
- В одномерном массиве, состоящем из n-вещественных элементов, вычислить:
-•	максимальный по модулю элемент массива;
-•	сумму элементов массива, расположенных между первым и вторым положительными элементами.
-Преобразовать массив таким образом, чтобы элементы, равные нулю, располагались после всех остальных.
- */
